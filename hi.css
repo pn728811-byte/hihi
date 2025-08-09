@@ -3,18 +3,21 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  /* Bỏ overflow: hidden để có thể cuộn trên điện thoại */
+  /* overflow: hidden; */ 
   background: black;
   font-family: monospace;
   color: #ff4eb8;
 }
-
 canvas {
-  position: absolute;
+  /* Thay position từ absolute thành fixed để canvas luôn full màn hình */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100% !important;
   height: 100% !important;
+  pointer-events: none; /* Để không chắn các nút bấm */
+  z-index: 0;
 }
 
 #countdown {
@@ -31,13 +34,17 @@ canvas {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  background: transparent;
+  background: rgba(0,0,0,0.6); /* Thêm nền mờ để chữ dễ đọc */
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 95%;
+  width: 320px; /* Chiều rộng hợp lý trên mobile */
   color: #ff4eb8;
   font-family: monospace;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
-  max-width: 90%;
-  white-space: normal; /* Cho phép xuống dòng */
+  white-space: normal;
+  box-sizing: border-box;
 }
 
 #question-box #question-text {
